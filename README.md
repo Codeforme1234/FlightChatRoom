@@ -1,2 +1,0 @@
-# FlightChatRoom
-Chatroom for flights
