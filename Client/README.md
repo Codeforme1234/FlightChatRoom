@@ -1,6 +1,4 @@
-# Welcome to your Expo app 👋
-
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+# Acko Clinic App 
 
 ## Get started
 
@@ -9,42 +7,40 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
    ```bash
    npm install
    ```
+2. Intsall expo cli
 
-2. Start the app
+   ```bash
+   npm install -g expo-cli
+   ```
+3. you check installation using
+
+   ```bash 
+   expo --version
+   ```
+
+4. you can run the app in web, ios, anroid using the flag which shows after installing the app.
+
+5. Start the app
 
    ```bash
     npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+6. Run the app in expo client -> 
+  1. download expo client application using playstore for android and app store for ios. 
+  2. if your phone and laptop is on same wifi then you can simply scan the QR shown after running the app using expo scanner shown in expo app. 
+  3. if phone and laptop is not on same wifi then we need to install open vpn
+     1. point open vpn to your ip using the ackodev or ackoprod vpn using the link <a link="https://vpn-staging.acko.in/login">https://vpn-staging.acko.in/login</a>
+     2. login and click "show more" and download profile zip file 
+     3. share the extraced file to phone and import in open vpn 
+     4. create account and login and use the authenticator for code (code should be added for the vpn profile which you downloaded)
+  4. In the expo app select "Enter URL manually" enter -> exp://192.168.239.___:8081 the last 3 number will be the ip address of vpn connected to. 
+  
+7. Code changes: 
+   1. open app/useChat.tsx line 34 update the current ip address to the vpn ip address. 
+   2. open lib/socket-io.ts line 2 update the current ip address to the vpn ip address.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+8. Now we will be able to access backend from app running on mobile
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-## Get a fresh project
 
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
