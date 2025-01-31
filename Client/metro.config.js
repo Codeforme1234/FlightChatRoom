@@ -1,6 +1,6 @@
-const { getDefaultConfig } = require("./$node_modules/expo/metro-config.js");
-const { withNativeWind } = require("./$node_modules/nativewind/dist/metro/index.js");
-const { wrapWithReanimatedMetroConfig } = require('./$node_modules/react-native-reanimated/metro-config/index.js');
+const { getDefaultConfig } = require("expo/metro-config");
+const { withNativeWind } = require("nativewind/metro");
+const { wrapWithReanimatedMetroConfig } = require('react-native-reanimated/metro-config');
 
 module.exports = (async () => {
   const config = await getDefaultConfig(__dirname);
