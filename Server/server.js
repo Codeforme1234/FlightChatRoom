@@ -4,6 +4,7 @@ const { Server } = require("socket.io");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const authRoutes = require("./routes/authRoutes.js");
+const connectToDatabase = require("./utils.js");
 
 dotenv.config();
 const app = express();
@@ -39,5 +40,14 @@ io.on("connection", (socket) => {
   });
 });
 
-const PORT = process.env.PORT || 5000;
-server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+(async () => {
+    try {
+        const db = await connectToDatabase();
+        const PORT = process.env.PORT || 5000;
+        server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+    } catch (err) {
+        console.error('Failed to connect to database:', err);
+        process.exit(1);
+    }
+})();
