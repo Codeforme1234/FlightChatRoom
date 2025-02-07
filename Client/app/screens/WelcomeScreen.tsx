@@ -78,7 +78,7 @@ export default function WelcomeScreen() {
       </TouchableOpacity>
 
       {/* Signup Navigation */}
-      <TouchableOpacity onPress={() => router.push(`/screens/SignupScreen`)} className="mt-4">
+      <TouchableOpacity onPress={() => router.push(`/screens/BoardingPassScanner`)} className="mt-4">
         <Text className="text-white text-center text-base underline">Don't have an account? Sign Up</Text>
       </TouchableOpacity>
       {error && (

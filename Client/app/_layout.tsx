@@ -9,6 +9,7 @@ export default function Layout() {
       <Stack.Screen name="screens/FlightSearchScreen" options={{ title: "Search Flight" }} />
       <Stack.Screen name="screens/ChatRoomScreen" options={{ headerShown: false }} />
       <Stack.Screen name="screens/SignupScreen" options={{ headerShown: false }} />
+      <Stack.Screen name="screens/BoardingPassScanner" options={{ headerShown: false }} />
     </Stack>
   );
 }

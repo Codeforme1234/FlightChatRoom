@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, ImageBackground } from "react-native";
+import { View, Text, TouchableOpacity, ImageBackground } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { useGlobalSearchParams } from "expo-router";
 import { useRouter } from "expo-router";
+import { Picker } from "@react-native-picker/picker";
+import { flights } from "../../constants/flights";
+
 export default function FlightSearchScreen() {
   const { nickname } = useGlobalSearchParams();  
   const [flightNumber, setFlightNumber] = useState("");
@@ -30,16 +33,25 @@ export default function FlightSearchScreen() {
 
 
       <View className="w-full max-w-md">
-        <TextInput
-          placeholder="Enter Flight Number (e.g. AA123)"
-          placeholderTextColor="#ddd"
-          value={flightNumber}
-          onChangeText={setFlightNumber}  
-          className="bg-white/20 text-white py-3 px-4 rounded-xl border border-gray-500 mb-4"
-        />
+        <View className="bg-white/20 rounded-xl border border-gray-500 mb-4 overflow-hidden">
+          <Picker
+            selectedValue={flightNumber}
+            onValueChange={(itemValue) => setFlightNumber(itemValue)}
+            style={{ color: 'white' }}
+            dropdownIconColor="white"
+          >
+            <Picker.Item label="Select Flight Number" value="" />
+            {flights.map((flight) => (
+              <Picker.Item
+                key={flight.flight_number}
+                label={flight.flight_number}
+                value={flight.flight_number}
+              />
+            ))}
+          </Picker>
+        </View>
       </View>
 
-    
       <TouchableOpacity
         onPress={() => setShowPicker(true)}
         className="w-full max-w-md bg-white/20 text-white py-3 px-4 rounded-xl border border-gray-500 mb-4"
